@@ -1,4 +1,5 @@
 # claude-domain-memory
+<img width="1210" height="880" alt="IMG_0554" src="https://github.com/user-attachments/assets/1b45b382-85d0-41a9-ba0c-f152cbd4be02" />
 
 A lightweight knowledge accumulation system for Claude Code. Captures what you learn while working — API quirks, patterns, confirmed rules — and makes it available in every future session automatically.
 
