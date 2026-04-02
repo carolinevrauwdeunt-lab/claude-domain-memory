@@ -39,6 +39,8 @@ Memory for that session goes into:
 - If you open from a different directory (e.g. your home folder) and edit files in `my-project`, memory goes into the home-level folder instead — and won't be available when working in `my-project`
 - There is no setting to change this — it is determined by working directory at session start
 
+**Memory is never stored in your project folder.** Claude Code stores all memory under `~/.claude/projects/<slug>/memory/` — completely separate from your code. Your project folder stays clean. The slug is Claude's internal mapping of your working directory path.
+
 **If your domain files landed in the wrong place**, move them manually:
 ```bash
 mv ~/.claude/projects/<wrong-slug>/memory/domain_*.md \
