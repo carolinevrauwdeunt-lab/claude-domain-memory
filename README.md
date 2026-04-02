@@ -35,11 +35,11 @@ Memory for that session goes into:
 ```
 
 **What this means in practice:**
-- If you open Claude Code from `/Users/you/Documents/my-project`, domain files land in that project's memory folder and load automatically next time you open from the same directory
-- If you open from a different directory (e.g. your home folder) and edit files in `my-project`, memory goes into the home-level folder instead — and won't be available when working in `my-project`
+- If you open Claude Code from `/Users/you/Documents/my-project`, domain files land in that project's memory folder (in .claude/projects/username-path-to-my-project..) and load automatically next time you open from the same directory
+- If you open from a different directory (e.g. your home folder) and edit files in `my-project`, memory goes into the home-level folder (.claude/projects/username) instead — and won't be available when working in `my-project`
 - There is no setting to change this — it is determined by working directory at session start
 
-**Memory is never stored in your project folder.** Claude Code stores all memory under `~/.claude/projects/<slug>/memory/` — completely separate from your code. Your project folder stays clean. The slug is Claude's internal mapping of your working directory path.
+**Memory is never stored in your project folder by Claude design.** Claude Code stores all memory under `~/.claude/projects/<slug>/memory/` — completely separate from your code. Your project folder stays clean. The slug is Claude's internal mapping of your working directory path.
 
 **If your domain files landed in the wrong place**, move them manually:
 ```bash
