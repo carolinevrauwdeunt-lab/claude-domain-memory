@@ -20,6 +20,31 @@ Each project gets one `domain_*.md` file per knowledge area (e.g. `domain_notion
 
 At the end of a session, run `/knowledge-update`. Claude reviews what was worked on and updates the relevant domain files — adding facts, incrementing hypothesis counts, and promoting anything that crossed the threshold.
 
+## How memory location works
+
+Domain files are stored per **working directory** — the folder Claude Code was opened from, not the folder containing the files you edited.
+
+Claude Code maps your working directory to a project slug by replacing `/` with `-`:
+```
+/Users/you/Documents/my-project → -Users-you-Documents-my-project
+```
+
+Memory for that session goes into:
+```
+~/.claude/projects/-Users-you-Documents-my-project/memory/
+```
+
+**What this means in practice:**
+- If you open Claude Code from `/Users/you/Documents/my-project`, domain files land in that project's memory folder and load automatically next time you open from the same directory
+- If you open from a different directory (e.g. your home folder) and edit files in `my-project`, memory goes into the home-level folder instead — and won't be available when working in `my-project`
+- There is no setting to change this — it is determined by working directory at session start
+
+**If your domain files landed in the wrong place**, move them manually:
+```bash
+mv ~/.claude/projects/<wrong-slug>/memory/domain_*.md \
+   ~/.claude/projects/<correct-slug>/memory/
+```
+
 ## Installation
 
 ### 1. Install the skill
